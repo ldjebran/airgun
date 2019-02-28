@@ -3,7 +3,9 @@ verbosity=INFO
 tmp_dir=/var/tmp
 
 [satellite]
+scheme=https
 hostname=example.com
+port=443
 username=admin
 password=changeme
 

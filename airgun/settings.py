@@ -32,9 +32,20 @@ class AirgunSettings(object):
 class SatelliteSettings(object):
 
     def __init__(self):
+        self.scheme = None
         self.hostname = None
+        self.port = None
         self.username = None
         self.password = None
+
+    @property
+    def url(self):
+        scheme = self.scheme if self.scheme else 'https'
+        port = self.port if self.port and self.port != 'None' else None
+        url = f'{scheme}://{self.hostname}'
+        if port:
+            url = f'{url}:{self.port}'
+        return url
 
 
 class SeleniumSettings(object):

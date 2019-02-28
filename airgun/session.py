@@ -170,8 +170,7 @@ class Session(object):
         try:
             selenium_browser = self._factory.get_browser()
             self.browser = AirgunBrowser(selenium_browser, self)
-
-            self.browser.url = 'https://' + settings.satellite.hostname
+            self.browser.url = settings.satellite.url
             self._factory.post_init()
 
             # Navigator
